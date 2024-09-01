@@ -1,7 +1,7 @@
 import os
 import json
 from llm import LLM  # 导入LLM类以使用语言模型生成报告
-from hackernews_client import HackerNewsClient  # 导入Hacker News客户端类
+from HackerNewsClient import HackerNewsClient  # 导入Hacker News客户端类
 from logger import LOG  # 导入日志模块
 
 def read_prompt_from_file(file_path):

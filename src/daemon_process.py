@@ -10,9 +10,10 @@ from notifier import Notifier  # 导入通知器类，用于发送通知
 from report_generator import ReportGenerator  # 导入报告生成器类
 from llm import LLM  # 导入语言模型类，可能用于生成报告内容
 from subscription_manager import SubscriptionManager  # 导入订阅管理器类，管理GitHub仓库订阅
-from hackernews_client import HackerNewsClient  # 导入 Hacker News 客户端类
+from HackerNewsClient import HackerNewsClient  # 导入 Hacker News 客户端类
 from generate_hackernews_report import generate_hackernews_report  # 导入生成 Hacker News 报告函数
 from logger import LOG  # 导入日志记录器
+
 
 
 def graceful_shutdown(signum, frame):
@@ -69,7 +70,7 @@ def main():
 
     # 安排每天的 Hacker News 定时任务
     schedule.every(config.freq_days).days.at(
-        config.hackernews_exec_time
+        config.exec_time
     ).do(hackernews_job, hackernews_client, llm, "prompts/hackernews_prompt.txt")
 
     try:
